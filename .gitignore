@@ -1,0 +1,17 @@
+# Node modules directory
+node_modules/
+
+# Cypress generated files
+cypress/videos/
+cypress/screenshots/
+
+# OS-specific files
+.DS_Store
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
