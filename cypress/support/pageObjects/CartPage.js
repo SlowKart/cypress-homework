@@ -3,9 +3,7 @@
 class CartPage {
     // SELECTORS
 
-    get createAccountButton() {
-        return cy.get('[data-qa="registration-continue-button"]');
-    }
+    
     // selector of the dropdown icon
     get dropdownPeriod() {
         return cy.get('[data-qa="dropdown-icon"]');
@@ -14,6 +12,10 @@ class CartPage {
     // select continue button in checkout
     get continueButton() {
         return cy.get('[data-qa="subtotal-section"] > [data-qa="continue-button"]');
+    }
+
+    get firstNameInput() {
+        return cy.get('[data-qa="first-name-input"]');
     }
 
     // mapping of the dropdown selections(chatGPT)
@@ -26,7 +28,7 @@ class CartPage {
 
     // METHODS
 
-    // method to click the dropdown icon
+    // click on the period dropdown
     clickDropdownPeriod() { 
         this.dropdownPeriod.click();
     }
@@ -49,9 +51,13 @@ class CartPage {
         this.continueButton.click();
     }
 
-    // checking if create account/login button is visible
-    isCreateAccountButtonVisible() {
-        this.createAccountButton.should('be.visible');
+    // update first name
+    updateFirstName(firstName) {
+        this.firstNameInput.clear().type(firstName);
+    }
+
+    isFirstNameInputVisible() {
+        this.firstNameInput.should('be.visible')
     }
 }
 
