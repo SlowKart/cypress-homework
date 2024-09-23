@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 import HomePage from '../support/pageObjects/HomePage';
 import CartPage from '../support/pageObjects/CartPage';
+import LoginPage from '../support/pageObjects/LoginPage';
 
 describe('tests for various plan purchase', () => {
   beforeEach(() => {
@@ -17,12 +18,16 @@ describe('tests for various plan purchase', () => {
     
     // click the dropdown
     CartPage.clickDropdownPeriod();
-    cy.wait(3000); // added the static wait because cloudflare didint like me 
+    cy.wait(5000); // added the static wait because cloudflare didint like me 
     // select 24 month plan
     CartPage.selectDropdownPeriodByText('24 months');
     //continue at checkout
     CartPage.clickContinueButton();
     //see if the flow went through and is the button visible
-    CartPage.isCreateAccountButtonVisible();
+    LoginPage.isLoginButtonVisible();
+    //press i already have an account and login, enter credentials
+    LoginPage.clickLoginButton();
+    LoginPage.login('grcnehm697@couldmail.com', 'Candidate!22');
+
   })
 })
