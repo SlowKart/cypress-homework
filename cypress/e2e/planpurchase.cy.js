@@ -25,10 +25,13 @@ describe('tests for various plan purchase', () => {
     //see if the flow went through and is the button visible
     LoginPage.isLoginButtonVisible();
     //press i already have an account and login, enter credentials
-   // LoginPage.clickLoginButton();
+    LoginPage.clickLoginButton()
     LoginPage.login('grcnehm697@couldmail.com', 'Candidate!22');
     //account didnt work, could not continue
     CartPage.isFirstNameInputVisible();
+    CartPage.updateFirstName('John');
+    CartPage.updateLastName('Doe');
+    CartPage.updatePhoneNumber('123456789');
 
   })
 })

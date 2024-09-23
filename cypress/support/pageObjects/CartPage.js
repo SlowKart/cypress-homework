@@ -15,7 +15,13 @@ class CartPage {
     }
 
     get firstNameInput() {
-        return cy.get('[data-qa="first-name-input"]');
+        return cy.get('[data-qa="first-name-input"] > .h-input__input-wrapper > .h-input__input');
+    }
+    get lastNameInput() {
+        return cy.get('[data-qa="last-name-input"]');
+    }
+    get phoneNumberInput() {
+        return cy.get('[data-qa="phone-number-input"]');
     }
 
     // mapping of the dropdown selections(chatGPT)
@@ -58,6 +64,15 @@ class CartPage {
 
     isFirstNameInputVisible() {
         this.firstNameInput.should('be.visible')
+    }
+    updateFirstName(firstName) {
+        this.firstNameInput.clear().type(firstName);
+    }
+    updateLastName(firstName) {
+        this.lastNameInput.clear().type(firstName);
+    }
+    updatePhoneNumber(firstName) {
+        this.phoneNumberInput.clear().type(firstName);
     }
 }
 
