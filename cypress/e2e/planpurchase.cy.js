@@ -26,7 +26,7 @@ describe('tests for various plan purchase', () => {
     LoginPage.isLoginButtonVisible();
     //press i already have an account and login, enter credentials
     LoginPage.clickLoginButton()
-    LoginPage.login('grcnehm697@couldmail.com', 'Candidate!22');
+    LoginPage.login(Cypress.env('email'), Cypress.env('password'));
     //account didnt work, could not continue
     CartPage.isFirstNameInputVisible();
     CartPage.updateFirstName('John');
